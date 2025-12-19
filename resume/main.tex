@@ -1,0 +1,145 @@
+\include{settings}
+
+% 填写个人信息
+% 学院 / 部门
+\newcommand{\school}{人工智能学域 | AI Thrust} 
+
+% 联系方式（调整样式：去掉白色文字，适配个人信息板块）
+\newcommand{\contact}{
+    \scriptsize
+    % 邮箱 
+    \faEnvelope \quad \href{mailto:youremail@hust.edu.cn}{xxxxxxxxxx}
+    \hspace{2em}
+    % 手机号
+    \faPhone \quad  111-1111-1111
+    \hspace{2em}
+    % 微信/Github
+    \faGithub \quad \href{https://github.com/yourname}{https:xxxxxx}
+}
+
+%%%%%%%%%%%%%%%%%%%%
+% 简历正文
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        % 1. 画背景条
+        \fill[HKUST_GZ] (current page.north west) rectangle ([yshift=-1.6cm]current page.north east);
+        
+        % 2. 放置左侧校徽文字 Logo 
+        % 如果没有白字Logo，可以将下面这行注释掉，直接用文字写校名
+        \node[anchor=west] at ([xshift=1cm, yshift=-0.8cm]current page.north west){
+            \includegraphics[height=1.0cm]{images/UST-GZ_white_tc_L_PNG.png} 
+        };
+        % 3. 放置右侧学院名称
+        \node[anchor=east] at ([xshift=-1cm, yshift=-0.8cm]current page.north east){
+            \textcolor{white}{\textbf{\school}}
+        };
+    \end{tikzpicture}
+    \vspace{-2em} % 调整正文与页眉的距离
+
+
+    % ============================================================
+    % 背景水印 
+    % ============================================================
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[
+            opacity=0.1,           % 透明度：建议 0.1 到 0.15 之间 (太深会干扰文字)
+            blend mode=multiply,    % 混合模式：让图片的白色背景变透明 (类似PS的正片叠底)
+            inner sep=0pt           % 去除多余边距
+        ] at(current page.center){
+            \includegraphics[width=0.8\paperwidth, keepaspectratio]{images/in_UST-GZ_4C_en-C_PNG.png}
+        };
+    \end{tikzpicture}
+
+    % ============================================================
+    % 个人信息板块（新增联系方式）
+    % ============================================================
+    \begin{figure}[h]
+        % 左半边：文字信息
+        \begin{minipage}{0.82\textwidth}
+            \section{\makebox[\widthof{\faAddressCard}][c]{\color{HKUST_GZ}{\faAddressCard}}\quad 个人信息}
+            \begin{tabularx}{\linewidth}{p{\widthof{出生日期:}}Xp{\widthof{政治面貌:}}X}
+                姓\ \ \ \ \ \ \ \ 名: & XXXX & 
+                性\ \ \ \ \ \ \ \ 别: & XX  \\
+                年\ \ \ \ \ \ \ \ 龄: & XX & 
+                政治面貌: & XXXX \\
+                联系方式: & \multicolumn{3}{l}{\contact} \\
+            \end{tabularx}
+        \end{minipage}
+        \hspace{1em}
+        % 右半边：照片
+        \begin{minipage}{0.14\textwidth}
+            \setlength{\fboxsep}{0pt}
+            \fcolorbox{HKUST_GZ}{white}{\includegraphics[width=\linewidth]{images/avatar.png}}
+        \end{minipage}
+    \end{figure}
+    \vspace{-1.5em}
+
+    % ============================================================
+    % 教育背景
+    % ============================================================
+    \section{\makebox[\widthof{\faGraduationCap}][c]{\color{HKUST_GZ}{\faGraduationCap}}\quad 教育背景}
+
+    % 示例内容
+    {\large \textbf{XXXXXX}}，本科 \hfill {xxxx，xxxx} \\
+    {{XXXXX}}，专业：XXXX \hfill {XXXX-XXXX} \\
+
+    \vspace{0.5em}
+    {\large \textbf{香港科技大学(广州)}}，硕士 \hfill {广东，广州} \\
+    {{信息枢纽}}，专业：人工智能 \hfill {2025年9月-至今} \\
+    \textbf{研究方向}：XXXXXXXXXXX。
+
+    % ============================================================
+    % 科研成果
+    % ============================================================
+    \section{\makebox[\widthof{\faBook}][c]{\color{HKUST_GZ}{\faBook}}\quad 科研成果}
+     \vspace{0.5em}
+    \textbf{XXXXXXXXXX} \\
+    \textbf{第一作者} \hfill 
+    发表于 \textbf{XXXXXX 2026} (CCF-A类会议)
+
+    
+    % ============================================================
+    % 项目与实习
+    % ============================================================
+    \section{\makebox[\widthof{\faLaptopCode}][c]{\color{HKUST_GZ}{\faLaptopCode}}\quad 项目与实习经历}
+    
+    \vspace{0.5em}
+    {\large{\textbf{xxxxx}}}，大模型算法实习生 \hfill {2025年4月 - 2025年9月}\\
+    \textbf{主要职责}：负责多模态大模型的微调与评测。\\
+    \textbf{工作产出}：xxxxx。
+
+% \newpage
+%换页则复制下面的代码
+    % \begin{tikzpicture}[remember picture, overlay]
+    %     \node[
+    %         opacity=0.1,           % 透明度：建议 0.1 到 0.15 之间 (太深会干扰文字)
+    %         blend mode=multiply,    % 混合模式：让图片的白色背景变透明 (类似PS的正片叠底)
+    %         inner sep=0pt           % 去除多余边距
+    %     ] at(current page.center){
+    %         \includegraphics[width=0.8\paperwidth, keepaspectratio]{images/in_UST-GZ_4C_en-C_PNG.png}
+    %     };
+    % \end{tikzpicture}
+
+
+    % ============================================================
+    % 竞赛
+    % ============================================================
+        \section{\makebox[\widthof{\faWrench}][c]{\color{HKUST_GZ}{\faWrench}}\quad 竞赛}
+    \vspace{0.5em}
+    {\large{\textbf{xxxxx}}}，xxxxx \hfill {xxxxx}\\
+    \textbf{主要职责}：xxxxx\\
+    \textbf{工作产出}：xxxxx
+   
+
+    
+    % ============================================================
+    % 奖项
+    % ============================================================
+        \section{\makebox[\widthof{    \faTrophy
+}][c]{\color{HKUST_GZ}{\faTrophy}}\quad 奖项}
+    \vspace{0.5em}
+    {\large{\textbf{xxxxx}}} \hfill {xxxxx}\\
+
+\end{document}
